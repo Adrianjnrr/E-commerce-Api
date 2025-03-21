@@ -4,7 +4,8 @@
   "description": "e-commerce Api",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
     "prod": "cross-env NODE_ENV=production node server.js "
   },
   "author": "Emmanuel Joseph",
