@@ -1,13 +1,13 @@
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const app = require("./app");
 
 dotenv.config({ path: "./config.env" });
+const app = require("./app");
 
 //handle sync rejection that we are not handling on our global error
 process.on("uncaughtExecptions", (err) => {
-  console.log(err.name, err.message);
   console.log("UNCAUGHT EXECPTIONS SHUTTING DOWN......");
+  console.log(err.name, err.message);
   process.exit(1);
 });
 
