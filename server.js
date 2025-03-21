@@ -2,6 +2,8 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const app = require("./app");
 
+dotenv.config({ path: "./config.env" });
+
 //handle sync rejection that we are not handling on our global error
 process.on("uncaughtExecptions", (err) => {
   console.log(err.name, err.message);
@@ -9,14 +11,9 @@ process.on("uncaughtExecptions", (err) => {
   process.exit(1);
 });
 
-dotenv.config({ path: "./config.env" });
-
 console.log("NODE_ENV is set:", process.env.NODE_ENV);
 
-const DB = process.env.DATABASE.replace(
-  "<PASSWORD>",
-  process.env.DATABASE_PASSWORD,
-);
+const DB = process.env.DATABASE;
 
 mongoose
   .connect(DB, {
