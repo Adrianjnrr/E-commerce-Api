@@ -41,7 +41,7 @@ const limiter = rateLimit({
 });
 app.use("/api", limiter);
 
-app.get("/", (req, res) => {
+app.use("/", (req, res) => {
   res.status(200).json({
     status: "success",
     message: "Welcome to the API!",
