@@ -15,7 +15,7 @@ router
     authController.restrictTo("admin"),
     productController.createProduct,
   );
-router.route("/").get(productController.getProducts);
+router.get("/", productController.getProducts);
 
 router
   .route("/category/:categoryName")
