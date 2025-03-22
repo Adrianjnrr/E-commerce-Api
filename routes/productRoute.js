@@ -17,14 +17,14 @@ router
     productController.createProduct,
   );
 
-router.get("/", productController.getProducts);
+router.get("/api/v1/products", productController.getProducts);
 
 router
   .route("/category/:categoryName")
   .get(productController.getProductByCategory);
 
 router
-  .route("/:id")
+  .route("/api/v1/products/:id")
   .get(productController.getProductById)
   .patch(
     authController.protect,
