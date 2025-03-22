@@ -2,6 +2,7 @@ const express = require("express");
 const productController = require("../controllers/productController");
 const authController = require("../controllers/authController");
 const reviewRoute = require("./reviewRoute");
+const { getAll } = require("../controllers/factoryHandler");
 
 const router = express.Router();
 
@@ -15,7 +16,8 @@ router
     authController.restrictTo("admin"),
     productController.createProduct,
   );
-router.get("/", productController.getProducts);
+
+router.get("/", productController.getProducts(getAll));
 
 router
   .route("/category/:categoryName")

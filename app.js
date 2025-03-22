@@ -41,15 +41,15 @@ const limiter = rateLimit({
 });
 app.use("/api", limiter);
 
-app.get("/", (req, res) => {
-  res.status(200).json({
-    status: "success",
-    message: "Welcome to the API!",
-  });
-});
+// app.get("/", (req, res) => {
+//   res.status(200).json({
+//     status: "success",
+//     message: "Welcome to the API!",
+//   });
+// });
 
 // Route middleware
-app.use("/api/v1/products", productRoute);
+app.use("/", productRoute);
 app.use("/api/v1/categories", categoryRoute);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/reviews", reviewRoute);
