@@ -17,7 +17,7 @@ router
     productController.createProduct,
   );
 
-router.get("/", productController.getProducts(getAll));
+router.get("/", productController.getProducts);
 
 router
   .route("/category/:categoryName")
