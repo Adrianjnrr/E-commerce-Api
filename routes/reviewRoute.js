@@ -9,7 +9,7 @@ reviewRoute.use(authController.protect);
 reviewRoute
   .route("/")
   .post(
-    authController.restrictTo("user, admin"),
+    authController.restrictTo("user"),
     reviewsController.setProductUserId,
     reviewsController.createReviews,
   )

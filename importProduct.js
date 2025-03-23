@@ -28,8 +28,22 @@ const importData = async () => {
     process.exit();
   } catch (err) {
     console.log("ERROR importing data");
-    process.exit(1);
+    process.exit();
   }
 };
 
-if (process.argv[2] === "--import") importData();
+const deleteData = async () => {
+  try {
+    await Products.deleteMany();
+    console.log("Delete successfully");
+  } catch (err) {
+    console.log(err);
+    process.exit();
+  }
+};
+
+if (process.argv[2] === "--import") {
+  importData();
+} else if (process.argv[2] === "--delete") {
+  deleteData();
+}
